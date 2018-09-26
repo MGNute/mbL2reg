@@ -93,6 +93,13 @@ def make_D_matrix_parallel():
 
 
 def worker(q,qid,taxadict):
+    '''
+
+    :param q:
+    :param qid:
+    :param taxadict:
+    :return:
+    '''
     lt=len(taxadict)
     dmat=np.zeros((lt,lt),dtype=np.float64)
     while q.empty()==False:
@@ -111,6 +118,10 @@ def worker(q,qid,taxadict):
     print ("done with %s" % qid)
 
 def assemble_d_matrices():
+    '''
+
+    :return:
+    '''
     nt=6862
     dmat=np.zeros((nt,nt),dtype=np.float64)
     for i in range(16):
@@ -129,6 +140,10 @@ def assemble_d_matrices():
     return dmat
 
 def get_taxa_indices():
+    '''
+
+    :return:
+    '''
     obs_ids=open(os.path.join(npdata,'obs-ids.txt'),'r')
     taxa={}
     ct=0
@@ -142,7 +157,10 @@ def get_taxa_indices():
     return taxa
 
 def make_D_matrix():
+    """
 
+    :return:
+    """
     # return tnew
     import datetime
     obs_ids=open(os.path.join(npdata,'obs-ids.txt'),'r')
@@ -183,6 +201,11 @@ def make_D_matrix():
     f1.close()
 
 def make_DL_DQ(dmat=None):
+    '''
+
+    :param dmat:
+    :return:
+    '''
     if dmat==None:
         df = open(os.path.join(npdata,"dmatrixfull.bin"),'rb')
         dmat = np.fromfile(df,dtype=np.float64)

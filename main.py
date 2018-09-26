@@ -78,7 +78,7 @@ class UnifracRegressionSolver():
         :param xfile: path to to the x-matrix file
         :return: None
         '''
-        if xfile<>None:
+        if xfile is not None:
             self.xfile=xfile
 
         self.x = np.loadtxt(self.xfile, np.float64, delimiter=',')
