@@ -84,12 +84,12 @@ class UnifracRegressionSolver():
         self.x = np.loadtxt(self.xfile, np.float64, delimiter=',')
         self.stat_N = self.x.shape[1]
         self.stat_P = self.x.shape[0]
-        print 'X matrix is (%s x %s) and has been loaded from:' % (str(self.stat_P),str(self.stat_N))
-        print self.xfile + '\n'
+        print ('X matrix is (%s x %s) and has been loaded from:' % (str(self.stat_P),str(self.stat_N)))
+        print (self.xfile + '\n')
 
 
     def init_make_y(self,yfile=None):
-        if yfile<>None:
+        if yfile is not None:
             self.yfile=yfile
         self.y=np.loadtxt(self.yfile,dtype=np.float64,delimiter=',')
         self.stat_T = self.y.shape[0]
